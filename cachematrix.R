@@ -6,7 +6,7 @@
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
-  ##  setMatrix is sed to set a new matrix as the original matrix to be inverted.
+  ##  setMatrix is sed to set a new matrix as the original matrix to be inverted, sets the inverted matrix variable to null..
   setMatrix <- function(y) {
     x <<- y
     m <<- NULL
@@ -17,6 +17,10 @@ makeCacheMatrix <- function(x = matrix()) {
   setInverse <- function(invm) m <<- invm
   ##  getInverse gets the inverse matrix 'm'.  This may be null meaning the inverse matrix of 'x' has not been calculated.
   getInverse <- function() m
+  
+  ##set the matrix passed in this function call
+  setMatrix(x)
+  
   ##  This function makeCacheMatrix returns a list of the four functions specified above.  This is referred to as a 'special' matrix.
   list(set = setMatrix, getMatrix = getMatrix,
        setInverse = setInverse,
